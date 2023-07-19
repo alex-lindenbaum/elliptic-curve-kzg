@@ -1,0 +1,11 @@
+[package]
+name = "kzg"
+version = "0.1.0"
+authors = ["Alex Lindenbaum <lindenbaum.alexander@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+fullcodec-bls12_381 = "0.2.0"
+rand = "0.8.5"
+hex = "0.4.3"
+colored = "2.0.4"
