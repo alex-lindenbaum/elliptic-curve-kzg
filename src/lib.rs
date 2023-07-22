@@ -73,10 +73,10 @@ pub fn generate_secrets_test(degree: u64) -> (Vec<G1Affine>, Vec<G2>) {
     let tau = Scalar::random(rng);      // Probability that tau = 0 is ~1/2^381
 
     let mut srs: Vec<G1Affine> = Vec::new();
-    for i in 0..=degree {
-        let exp = tau.pow(&[i, 0, 0, 0]);
-
+    let mut exp = Scalar::one();
+    for _i in 0..=degree {
         srs.push(msm_variable_base(&[g], &[exp]).into());
+        exp *= tau;
     }
 
     let g2 = G2::generator();
